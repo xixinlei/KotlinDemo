@@ -1,26 +1,23 @@
 package com.example.kotlintest.kotlintest
 
-import android.app.Activity
-import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import com.example.kotlintest.kotlintest.base.BaseActivity
 
-class MainActivity : Activity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        onclick()
+class MainActivity : BaseActivity() {
+    override fun initListener() {
     }
 
-    fun onclick() {
-        val value = Module("Jane", 11)
-        val arr: IntArray = intArrayOf(1, 2, 3, 4, 5)
+    override fun initData() {
+    }
+
+    override fun initView() {
         val button = findViewById<Button>(R.id.button)
         val textView = findViewById<TextView>(R.id.textView)
-        button.setOnClickListener(View.OnClickListener {
-
-        })
     }
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
+    }
+
 }
