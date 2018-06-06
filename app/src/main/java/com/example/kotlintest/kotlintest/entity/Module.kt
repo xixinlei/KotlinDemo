@@ -1,4 +1,4 @@
-package com.example.kotlintest.kotlintest
+package com.example.kotlintest.kotlintest.entity
 
 /**
  * Created by 60959 on 2018/6/5.
