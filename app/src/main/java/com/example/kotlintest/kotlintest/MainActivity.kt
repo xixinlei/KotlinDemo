@@ -2,13 +2,11 @@ package com.example.kotlintest.kotlintest
 
 import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 
-class MainActivity : RxAppCompatActivity() {
+class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
