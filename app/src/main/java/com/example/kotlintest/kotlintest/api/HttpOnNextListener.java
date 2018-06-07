@@ -4,7 +4,6 @@ import rx.Observable;
 
 /**
  * 成功回调处理
- * Created by WZG on 2016/7/16.
  */
 public abstract class HttpOnNextListener<T> {
     /**

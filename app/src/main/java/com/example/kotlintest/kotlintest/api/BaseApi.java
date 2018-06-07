@@ -10,7 +10,6 @@ import rx.functions.Func1;
 
 /**
  * 请求数据统一封装类
- * Created by WZG on 2016/7/16.
  */
 public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
     //rx生命周期管理

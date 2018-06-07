@@ -18,10 +18,10 @@ public class HttpApi extends BaseApi {
     public HttpApi(RxAppCompatActivity rxAppCompatActivity, Map map, HttpOnNextListener listener) {
         super(listener, rxAppCompatActivity);
         this.map = map;
-        setShowProgress(true);
-        setCancel(true);
-        setCache(true);
-        setMethod("AppFiftyToneGraph/videoLink");
+        setShowProgress(false);
+        setCancel(false);
+        setCache(false);
+//        setMethod("AppFiftyToneGraph/videoLink");
         setCookieNetWorkTime(60);
         setCookieNoNetWorkTime(24 * 60 * 60);
     }

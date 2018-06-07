@@ -2,7 +2,6 @@ package com.example.kotlintest.kotlintest.api;
 
 /**
  * 回调信息统一封装类
- * Created by WZG on 2016/7/16.
  */
 public class BaseResultEntity<T> {
     //  判断标示

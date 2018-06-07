@@ -12,6 +12,7 @@ class NetworktestActivity : BaseActivity() {
         button.setOnClickListener {
             requestData()
         }
+
     }
 
     private fun requestData() {

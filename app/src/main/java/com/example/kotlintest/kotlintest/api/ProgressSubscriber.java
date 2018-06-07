@@ -21,7 +21,6 @@ import rx.Subscriber;
  * 在Http请求结束是，关闭ProgressDialog
  * 调用者自己对请求数据进行处理
  * (已删除缓存)
- * Created by WZG on 2016/7/16.
  */
 public class ProgressSubscriber<T> extends Subscriber<T> {
     /*是否弹框*/

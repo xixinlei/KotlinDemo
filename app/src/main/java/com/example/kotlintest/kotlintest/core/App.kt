@@ -2,7 +2,7 @@ package com.example.kotlintest.kotlintest.core
 
 import android.app.Application
 
-open class App private constructor() : Application() {
+open class App : Application() {
     companion object {
         private var debug: Boolean = true
         fun getApplication() = Holder.INSTANCE
