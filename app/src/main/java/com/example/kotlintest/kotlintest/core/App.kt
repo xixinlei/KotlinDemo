@@ -2,14 +2,10 @@ package com.example.kotlintest.kotlintest.core
 
 import android.app.Application
 
-open class App : Application {
+open class App private constructor() : Application() {
     companion object {
-        private lateinit var app: App
         private var debug: Boolean = true
-        open fun getApplication(): App {
-            return app
-        }
-
+        fun getApplication() = Holder.INSTANCE
         open fun isDebug(): Boolean {
             return debug
         }
@@ -21,10 +17,11 @@ open class App : Application {
         setDebug(true)
     }
 
-    fun setDebug(debug: Boolean) {
-        app.debug = debug
+    private object Holder {
+        val INSTANCE = App()
     }
 
-    private constructor()
-
+    fun setDebug(debug: Boolean) {
+        Holder.INSTANCE.debug = debug
+    }
 }

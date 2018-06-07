@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity() {
     override fun initListener() {
         button.setOnClickListener {
-            startActivity(Intent(this, NetworktestActivity::class.java))
+            startActivity(Intent(MainActivity@ this, NetworktestActivity::class.java))
         }
     }
 

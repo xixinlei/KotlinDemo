@@ -1,13 +1,19 @@
 package com.example.kotlintest.kotlintest.base
 
-import android.app.Activity
+import android.app.Application
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.example.kotlintest.kotlintest.api.HttpManager
+import com.example.kotlintest.kotlintest.core.App
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : RxAppCompatActivity() {
+    lateinit var context: Application
+    lateinit var manager: HttpManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        context = App.getApplication()
+        manager = HttpManager.getInstance()
         setContentView(View.inflate(this, getLayoutId(), null))
         initView()
         initListener()
