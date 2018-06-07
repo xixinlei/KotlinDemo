@@ -2,6 +2,7 @@ package com.example.kotlintest.kotlintest.ui
 
 import android.util.Log
 import com.example.kotlintest.kotlintest.R
+import com.example.kotlintest.kotlintest.R.id.button
 import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
 import com.example.kotlintest.kotlintest.base.BaseActivity
@@ -17,19 +18,18 @@ class NetworktestActivity : BaseActivity() {
 
     private fun requestData() {
         var map = HashMap<String, Boolean>()
-        map["once_no"] = false
+        map["once"] = true
         manager.doHttpDeal(HttpApi(
                 this,
                 map,
                 object : HttpOnNextListener<String>() {
                     override fun onNext(s: String) {
-//                        textView.text = s
-                        Log.e("TAG", s)
+                        textView.text = s
                     }
 
                     override fun onError(e: Throwable?) {
                         super.onError(e)
-                        Log.e("TAG", e.toString())
+                        textView.text = e.toString()
                     }
                 }
         ))

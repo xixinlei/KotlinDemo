@@ -1,8 +1,11 @@
 package com.example.kotlintest.kotlintest.api;
 
+import com.example.kotlintest.kotlintest.entity.RetrofitEntity;
+import com.example.kotlintest.kotlintest.entity.SubjectResulte;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Retrofit;
@@ -18,10 +21,10 @@ public class HttpApi extends BaseApi {
     public HttpApi(RxAppCompatActivity rxAppCompatActivity, Map map, HttpOnNextListener listener) {
         super(listener, rxAppCompatActivity);
         this.map = map;
-        setShowProgress(false);
-        setCancel(false);
+        setShowProgress(true);
+        setCancel(true);
         setCache(false);
-//        setMethod("AppFiftyToneGraph/videoLink");
+        setMethod("AppFiftyToneGraph/videoLink");
         setCookieNetWorkTime(60);
         setCookieNoNetWorkTime(24 * 60 * 60);
     }
@@ -29,6 +32,7 @@ public class HttpApi extends BaseApi {
     @Override
     public Observable getObservable(Retrofit retrofit) {
         HttpService service = retrofit.create(HttpService.class);
-        return service.getTestMap(map);
+        Observable<RetrofitEntity> testMap = service.getTestMap((Boolean) map.get("once"));
+        return testMap;
     }
 }
