@@ -1,19 +1,21 @@
 package com.example.kotlintest.kotlintest
 
-import android.widget.Button
-import android.widget.TextView
+import android.content.Intent
 import com.example.kotlintest.kotlintest.base.BaseActivity
+import com.example.kotlintest.kotlintest.ui.NetworktestActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
     override fun initListener() {
+        button.setOnClickListener {
+            startActivity(Intent(this, NetworktestActivity::class.java))
+        }
     }
 
     override fun initData() {
     }
 
     override fun initView() {
-        val button = findViewById<Button>(R.id.button)
-        val textView = findViewById<TextView>(R.id.textView)
     }
 
     override fun getLayoutId(): Int {
