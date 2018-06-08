@@ -1,7 +1,5 @@
 package com.example.kotlintest.kotlintest.api;
 
-import com.example.kotlintest.kotlintest.entity.RetrofitEntity;
-import com.example.kotlintest.kotlintest.entity.SubjectResulte;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import java.util.HashMap;

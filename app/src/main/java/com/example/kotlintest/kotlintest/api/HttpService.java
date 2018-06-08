@@ -1,7 +1,6 @@
 package com.example.kotlintest.kotlintest.api;
 
-import com.example.kotlintest.kotlintest.entity.RetrofitEntity;
-import com.example.kotlintest.kotlintest.entity.SubjectResulte;
+import com.example.kotlintest.kotlintest.entity.MovieTop250Entity;
 
 import java.util.List;
 import java.util.Map;
@@ -13,6 +12,6 @@ import rx.Observable;
 
 interface HttpService {
     @FormUrlEncoded
-    @POST("AppFiftyToneGraph/videoLink")
-    Observable<BaseResultEntity<List<SubjectResulte>>> getTestMap(@Field("map") Map map);
+    @POST("movie/top250")
+    Observable<BaseResultEntity<List<MovieTop250Entity>>> getTestMap(@Field("") Map map);
 }

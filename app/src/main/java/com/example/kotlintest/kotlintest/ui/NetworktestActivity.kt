@@ -1,12 +1,10 @@
 package com.example.kotlintest.kotlintest.ui
 
-import android.util.Log
 import com.example.kotlintest.kotlintest.R
-import com.example.kotlintest.kotlintest.R.id.button
 import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
 import com.example.kotlintest.kotlintest.base.BaseActivity
-import com.example.kotlintest.kotlintest.entity.SubjectResulte
+import com.example.kotlintest.kotlintest.entity.MovieTop250Entity
 import kotlinx.android.synthetic.main.networktest.*
 
 class NetworktestActivity : BaseActivity() {
@@ -19,13 +17,16 @@ class NetworktestActivity : BaseActivity() {
 
     private fun requestData() {
         var map = HashMap<String, Boolean>()
-        map["once"] = true
         manager.doHttpDeal(HttpApi(
                 this,
                 map,
-                object : HttpOnNextListener<List<SubjectResulte>>() {
-                    override fun onNext(subjects: List<SubjectResulte>) {
-                        textView.text = subjects.toString()
+                object : HttpOnNextListener<List<MovieTop250Entity>>() {
+                    override fun onNext(subjects: List<MovieTop250Entity>) {
+                        var str = ""
+                        for (itm in subjects) {
+                            str += itm.toString()
+                        }
+                        textView.text = str
                     }
 
                     override fun onError(e: Throwable?) {
