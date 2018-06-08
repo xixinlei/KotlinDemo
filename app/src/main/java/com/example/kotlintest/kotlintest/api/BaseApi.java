@@ -1,5 +1,7 @@
 package com.example.kotlintest.kotlintest.api;
 
+import android.util.Log;
+
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import java.lang.ref.SoftReference;
@@ -178,7 +180,8 @@ public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
 
     @Override
     public T call(BaseResultEntity<T> httpResult) {
-        return httpResult.getSubjects();
+        Log.e("TAG", "-------------"+httpResult.toString());
+        return httpResult.getSubjects()==null? (T) httpResult.toString() :httpResult.getSubjects();
     }
 
 

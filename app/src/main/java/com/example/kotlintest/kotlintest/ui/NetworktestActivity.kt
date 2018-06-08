@@ -5,6 +5,7 @@ import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
 import com.example.kotlintest.kotlintest.api.UrlConstant
 import com.example.kotlintest.kotlintest.base.BaseActivity
+import com.example.kotlintest.kotlintest.entity.MovieDetailEntity
 import com.example.kotlintest.kotlintest.entity.MovieTop250Entity
 import kotlinx.android.synthetic.main.networktest.*
 
@@ -17,18 +18,15 @@ class NetworktestActivity : BaseActivity() {
     }
 
     private fun requestData() {
-        var map = HashMap<String, Boolean>()
+        var map = HashMap<String, String>()
+        map["id"] = "1764796";
         manager.doHttpDeal(HttpApi(
                 this,
                 map,
-                UrlConstant.MOVIETOP250,
-                object : HttpOnNextListener<List<MovieTop250Entity>>() {
-                    override fun onNext(subjects: List<MovieTop250Entity>) {
-                        var str = ""
-                        for (itm in subjects) {
-                            str += itm.toString()
-                        }
-                        textView.text = str
+                UrlConstant.MOVIEDETAIL,
+                object : HttpOnNextListener<MovieDetailEntity>() {
+                    override fun onNext(subjects: MovieDetailEntity) {
+                        textView.text = subjects.toString()
                     }
 
                     override fun onError(e: Throwable?) {

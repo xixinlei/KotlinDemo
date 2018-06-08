@@ -20,8 +20,12 @@ public class HttpObserverble {
         Observable observable = null;
         switch (urlConstant) {
             case UrlConstant.MOVIETOP250:
-                observable = service.getTestMap(map);
+                observable = service.getMovieTop250(map);
                 break;
+            case UrlConstant.MOVIEDETAIL:
+                observable = service.getMovieDetail(map);
+                break;
+
         }
         if (observable == null) {
             throw new Exception("UrlConstantException");//没有校验,就是一把闪退

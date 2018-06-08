@@ -1,5 +1,6 @@
 package com.example.kotlintest.kotlintest.api;
 
+import com.example.kotlintest.kotlintest.entity.MovieDetailEntity;
 import com.example.kotlintest.kotlintest.entity.MovieTop250Entity;
 
 import java.util.List;
@@ -13,5 +14,9 @@ import rx.Observable;
 interface HttpService {
     @FormUrlEncoded
     @POST("movie/top250")
-    Observable<BaseResultEntity<List<MovieTop250Entity>>> getTestMap(@Field("map") Map map);
+    Observable<BaseResultEntity<List<MovieTop250Entity>>> getMovieTop250(@Field("map") Map map);
+
+    @FormUrlEncoded
+    @POST("movie/subject/")
+    Observable<BaseResultEntity<MovieDetailEntity>> getMovieDetail(@Field("map") Map map);
 }

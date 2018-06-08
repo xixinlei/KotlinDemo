@@ -14,4 +14,11 @@ public class BaseResultEntity<T> {
     public void setSubjects(T subjects) {
         this.subjects = subjects;
     }
+
+    @Override
+    public String toString() {
+        return "BaseResultEntity{" +
+                "subjects=" + subjects +
+                '}';
+    }
 }
