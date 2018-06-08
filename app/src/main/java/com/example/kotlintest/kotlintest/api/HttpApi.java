@@ -32,7 +32,6 @@ public class HttpApi extends BaseApi {
     @Override
     public Observable getObservable(Retrofit retrofit) {
         HttpService service = retrofit.create(HttpService.class);
-        Observable<RetrofitEntity> testMap = service.getTestMap((Boolean) map.get("once"));
-        return testMap;
+        return service.getTestMap(map);
     }
 }

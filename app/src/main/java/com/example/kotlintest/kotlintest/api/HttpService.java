@@ -4,6 +4,7 @@ import com.example.kotlintest.kotlintest.entity.RetrofitEntity;
 import com.example.kotlintest.kotlintest.entity.SubjectResulte;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -13,5 +14,5 @@ import rx.Observable;
 interface HttpService {
     @FormUrlEncoded
     @POST("AppFiftyToneGraph/videoLink")
-    Observable<RetrofitEntity> getTestMap(@Field("once") Boolean once);
+    Observable<BaseResultEntity<List<SubjectResulte>>> getTestMap(@Field("map") Map map);
 }

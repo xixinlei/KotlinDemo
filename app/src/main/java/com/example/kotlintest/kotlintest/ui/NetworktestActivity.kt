@@ -6,6 +6,7 @@ import com.example.kotlintest.kotlintest.R.id.button
 import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
 import com.example.kotlintest.kotlintest.base.BaseActivity
+import com.example.kotlintest.kotlintest.entity.SubjectResulte
 import kotlinx.android.synthetic.main.networktest.*
 
 class NetworktestActivity : BaseActivity() {
@@ -22,9 +23,9 @@ class NetworktestActivity : BaseActivity() {
         manager.doHttpDeal(HttpApi(
                 this,
                 map,
-                object : HttpOnNextListener<String>() {
-                    override fun onNext(s: String) {
-                        textView.text = s
+                object : HttpOnNextListener<List<SubjectResulte>>() {
+                    override fun onNext(subjects: List<SubjectResulte>) {
+                        textView.text = subjects.toString()
                     }
 
                     override fun onError(e: Throwable?) {
