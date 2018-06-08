@@ -23,7 +23,7 @@ public class HttpApi extends BaseApi {
         this.map = map;
         setShowProgress(true);
         setCancel(true);
-        setCache(false);
+        setCache(true);
         setMethod("AppFiftyToneGraph/videoLink");
         setCookieNetWorkTime(60);
         setCookieNoNetWorkTime(24 * 60 * 60);

@@ -21,6 +21,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
+        setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
         verifyStoragePermissions(this)
     }
 
