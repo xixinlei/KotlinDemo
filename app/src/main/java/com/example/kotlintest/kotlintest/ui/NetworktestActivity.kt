@@ -3,6 +3,7 @@ package com.example.kotlintest.kotlintest.ui
 import com.example.kotlintest.kotlintest.R
 import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
+import com.example.kotlintest.kotlintest.api.UrlConstant
 import com.example.kotlintest.kotlintest.base.BaseActivity
 import com.example.kotlintest.kotlintest.entity.MovieTop250Entity
 import kotlinx.android.synthetic.main.networktest.*
@@ -20,6 +21,7 @@ class NetworktestActivity : BaseActivity() {
         manager.doHttpDeal(HttpApi(
                 this,
                 map,
+                UrlConstant.MOVIETOP250,
                 object : HttpOnNextListener<List<MovieTop250Entity>>() {
                     override fun onNext(subjects: List<MovieTop250Entity>) {
                         var str = ""

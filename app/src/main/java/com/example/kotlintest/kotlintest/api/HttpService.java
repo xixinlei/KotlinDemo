@@ -13,5 +13,5 @@ import rx.Observable;
 interface HttpService {
     @FormUrlEncoded
     @POST("movie/top250")
-    Observable<BaseResultEntity<List<MovieTop250Entity>>> getTestMap(@Field("") Map map);
+    Observable<BaseResultEntity<List<MovieTop250Entity>>> getTestMap(@Field("map") Map map);
 }

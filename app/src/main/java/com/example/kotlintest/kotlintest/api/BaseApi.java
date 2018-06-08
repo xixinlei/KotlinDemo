@@ -54,7 +54,7 @@ public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
      * @param retrofit
      * @return
      */
-    public abstract Observable getObservable(Retrofit retrofit);
+    public abstract Observable getObservable(Retrofit retrofit) throws Exception;
 
 
     public int getCookieNoNetWorkTime() {

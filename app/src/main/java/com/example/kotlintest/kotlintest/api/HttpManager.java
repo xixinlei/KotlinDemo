@@ -64,20 +64,25 @@ public class HttpManager {
 
         /*rx处理*/
         ProgressSubscriber subscriber = new ProgressSubscriber(basePar);
-        Observable observable = basePar.getObservable(retrofit)
-                /*失败后的retry配置*/
-                .retryWhen(new RetryWhenNetworkException(basePar.getRetryCount(),
-                        basePar.getRetryDelay(), basePar.getRetryIncreaseDelay()))
-                /*生命周期管理*/
-//                .compose(basePar.getRxAppCompatActivity().bindToLifecycle())
-                .compose(basePar.getRxAppCompatActivity().bindUntilEvent(ActivityEvent.PAUSE))
-                /*http请求线程*/
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                /*回调线程*/
-                .observeOn(AndroidSchedulers.mainThread())
-                /*结果判断*/
-                .map(basePar);
+        Observable observable = null;
+        try {
+            observable = basePar.getObservable(retrofit)
+                    /*失败后的retry配置*/
+                    .retryWhen(new RetryWhenNetworkException(basePar.getRetryCount(),
+                            basePar.getRetryDelay(), basePar.getRetryIncreaseDelay()))
+                    /*生命周期管理*/
+                    //                .compose(basePar.getRxAppCompatActivity().bindToLifecycle())
+                    .compose(basePar.getRxAppCompatActivity().bindUntilEvent(ActivityEvent.PAUSE))
+                    /*http请求线程*/
+                    .subscribeOn(Schedulers.io())
+                    .unsubscribeOn(Schedulers.io())
+                    /*回调线程*/
+                    .observeOn(AndroidSchedulers.mainThread())
+                    /*结果判断*/
+                    .map(basePar);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         /*链接式对象返回*/
