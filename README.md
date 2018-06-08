@@ -1,2 +1,2 @@
 # KotlinDemo
-用来练习kotlin
+大杂烩,想到哪儿写哪儿
