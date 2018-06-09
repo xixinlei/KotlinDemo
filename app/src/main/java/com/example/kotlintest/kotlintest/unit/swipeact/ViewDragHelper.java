@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.kotlintest.kotlintest.ui.swipeact;
+package com.example.kotlintest.kotlintest.unit.swipeact;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;

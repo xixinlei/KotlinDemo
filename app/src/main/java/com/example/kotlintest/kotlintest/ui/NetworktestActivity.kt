@@ -6,7 +6,6 @@ import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
 import com.example.kotlintest.kotlintest.api.UrlConstant
 import com.example.kotlintest.kotlintest.base.BaseActivity
-import com.example.kotlintest.kotlintest.entity.MovieDetailEntity
 import com.example.kotlintest.kotlintest.entity.MovieTop250Entity
 import kotlinx.android.synthetic.main.networktest.*
 

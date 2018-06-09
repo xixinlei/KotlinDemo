@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.kotlintest.kotlintest.core.App;
 import com.trello.rxlifecycle.android.ActivityEvent;
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import java.lang.ref.SoftReference;
 import java.util.concurrent.TimeUnit;

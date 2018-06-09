@@ -1,4 +1,4 @@
-package com.example.kotlintest.kotlintest.ui.swipeact;
+package com.example.kotlintest.kotlintest.unit.swipeact;
 
 /**
  * @author Yrom

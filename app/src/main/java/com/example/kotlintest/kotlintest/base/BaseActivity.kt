@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import com.example.kotlintest.kotlintest.api.HttpManager
 import com.example.kotlintest.kotlintest.core.App
-import com.example.kotlintest.kotlintest.ui.swipeact.SwipeBackActivityHelper
-import com.example.kotlintest.kotlintest.ui.swipeact.SwipeBackLayout
-import com.example.kotlintest.kotlintest.ui.swipeact.Utils
+import com.example.kotlintest.kotlintest.unit.swipeact.SwipeBackActivityHelper
+import com.example.kotlintest.kotlintest.unit.swipeact.SwipeBackLayout
+import com.example.kotlintest.kotlintest.unit.swipeact.Utils
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 
 abstract class BaseActivity : RxAppCompatActivity() {
@@ -21,7 +21,8 @@ abstract class BaseActivity : RxAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(View.inflate(this, getLayoutId(), null))
         context = App.getApplication()
-        manager = HttpManager.getInstance()
+        manager = App.manager
+        App.getApplication().setRxcontext(this)
         mHelper = SwipeBackActivityHelper(this)
         mHelper!!.onActivityCreate()
         initView()
