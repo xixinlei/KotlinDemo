@@ -18,8 +18,8 @@ import rx.Observable;
 interface HttpService {
     @FormUrlEncoded
     @POST("movie/top250")
-    Observable<BaseResultEntity<List<MovieTop250Entity>>> getMovieTop250(@Field("map") Map map);
+    Observable<MovieTop250Entity> getMovieTop250(@Field("map") Map map);
 
     @GET("movie/subject/{id}")
-    Observable<BaseResultEntity<MovieDetailEntity>> getMovieDetail(@Path("id") int id);
+    Observable<MovieDetailEntity> getMovieDetail(@Path("id") int id);
 }

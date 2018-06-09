@@ -13,7 +13,8 @@ import rx.functions.Func1;
 /**
  * 请求数据统一封装类
  */
-public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
+//public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
+public abstract class BaseApi<T> implements Func1 {
     //rx生命周期管理
     private SoftReference<RxAppCompatActivity> rxAppCompatActivity;
     /*回调*/
@@ -177,13 +178,17 @@ public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
     public RxAppCompatActivity getRxAppCompatActivity() {
         return rxAppCompatActivity.get();
     }
+//    @Override由于数据结构的问题,暂时放弃对公共参数进行处理
+//    public T call(BaseResultEntity<T> httpResult) {
+//        Log.e("TAG", "-------------" + httpResult.toString());
+//        return httpResult.getSubjects();
+//    }
+
 
     @Override
-    public T call(BaseResultEntity<T> httpResult) {
-        Log.e("TAG", "-------------" + httpResult.toString());
-        return httpResult.getSubjects();
+    public Object call(Object o) {
+        return o;
     }
-
 
     public String getCacheUrl() {
         return cacheUrl;

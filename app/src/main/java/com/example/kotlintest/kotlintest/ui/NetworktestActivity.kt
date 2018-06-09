@@ -19,14 +19,31 @@ class NetworktestActivity : BaseActivity() {
     }
 
     private fun requestData() {
+//        var map = HashMap<String, String>()
+//        map["id"] = "1764796";
+//        manager.doHttpDeal(HttpApi(
+//                this,
+//                map,
+//                UrlConstant.MOVIEDETAIL,
+//                object : HttpOnNextListener<MovieDetailEntity>() {
+//                    override fun onNext(subjects:MovieDetailEntity) {
+//                        textView.text = subjects.toString()
+//                    }
+//
+//                    override fun onError(e: Throwable?) {
+//                        super.onError(e)
+//                        textView.text = e.toString()
+//                    }
+//                }
+//        ))
         var map = HashMap<String, String>()
-        map["id"] = "1764796";
+//        map["id"] = "1764796";
         manager.doHttpDeal(HttpApi(
                 this,
                 map,
-                UrlConstant.MOVIEDETAIL,
-                object : HttpOnNextListener<MovieDetailEntity>() {
-                    override fun onNext(subjects:MovieDetailEntity) {
+                UrlConstant.MOVIETOP250,
+                object : HttpOnNextListener<MovieTop250Entity>() {
+                    override fun onNext(subjects: MovieTop250Entity) {
                         textView.text = subjects.toString()
                     }
 

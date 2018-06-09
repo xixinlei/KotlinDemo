@@ -1,5 +1,6 @@
 package com.example.kotlintest.kotlintest.api;
 
+import com.example.kotlintest.kotlintest.entity.MovieDetailEntity;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
