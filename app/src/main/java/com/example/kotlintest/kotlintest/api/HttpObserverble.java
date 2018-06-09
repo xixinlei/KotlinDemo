@@ -23,7 +23,7 @@ public class HttpObserverble {
                 observable = service.getMovieTop250(map);
                 break;
             case UrlConstant.MOVIEDETAIL:
-                observable = service.getMovieDetail(map);
+                observable = service.getMovieDetail(Integer.parseInt(map.get("id").toString()));
                 break;
 
         }

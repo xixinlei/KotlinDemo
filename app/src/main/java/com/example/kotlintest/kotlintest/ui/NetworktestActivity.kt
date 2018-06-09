@@ -1,6 +1,7 @@
 package com.example.kotlintest.kotlintest.ui
 
 import com.example.kotlintest.kotlintest.R
+import com.example.kotlintest.kotlintest.api.BaseResultEntity
 import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
 import com.example.kotlintest.kotlintest.api.UrlConstant
@@ -25,7 +26,7 @@ class NetworktestActivity : BaseActivity() {
                 map,
                 UrlConstant.MOVIEDETAIL,
                 object : HttpOnNextListener<MovieDetailEntity>() {
-                    override fun onNext(subjects: MovieDetailEntity) {
+                    override fun onNext(subjects:MovieDetailEntity) {
                         textView.text = subjects.toString()
                     }
 

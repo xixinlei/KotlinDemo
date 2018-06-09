@@ -180,8 +180,8 @@ public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
 
     @Override
     public T call(BaseResultEntity<T> httpResult) {
-        Log.e("TAG", "-------------"+httpResult.toString());
-        return httpResult.getSubjects()==null? (T) httpResult:httpResult.getSubjects();
+        Log.e("TAG", "-------------" + httpResult.toString());
+        return httpResult.getSubjects();
     }
 
 
