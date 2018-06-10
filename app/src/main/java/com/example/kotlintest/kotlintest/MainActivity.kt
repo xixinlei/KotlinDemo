@@ -41,7 +41,6 @@ class MainActivity : BaseActivity() {
                     getResources().getDrawable(R.mipmap.ic_second),
                     Color.parseColor(colors[i]))
                     .title(titles[i])
-                    .badgeTitle("new")//角标
                     .build())
         }
         ntb_horizontal.models = models

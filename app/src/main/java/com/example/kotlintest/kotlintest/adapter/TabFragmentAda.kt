@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.example.kotlintest.kotlintest.ui.fragment.*
 
 class TabFragmentAda(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
-    //    var fragments: Array<Fragment> = arrayOf(TabMovieFragment(), TabBookFragment(), TabMusicFragment(), TabBrodFragment(), TabPhotoFragment())
     override fun getItem(position: Int): Fragment {
         when (position) {
             0 -> return TabMovieFragment()
@@ -17,6 +16,7 @@ class TabFragmentAda(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
         }
         return Fragment()
     }
+
 
     override fun getCount(): Int {
         return 5
