@@ -13,7 +13,7 @@ import rx.Observable;
  */
 
 public class HttpApi extends BaseApi {
-    private Map map = new HashMap();
+    private HashMap<String, String> map = new HashMap<String, String>();
     private int urlConstant;
 
     /**
@@ -24,11 +24,11 @@ public class HttpApi extends BaseApi {
      * @param urlConstant         区分请求地址的tag
      * @param listener            回调
      */
-    public HttpApi(RxAppCompatActivity rxAppCompatActivity, Map map, int urlConstant, HttpOnNextListener listener) {
+    public HttpApi(RxAppCompatActivity rxAppCompatActivity, HashMap<String, String> map, int urlConstant, HttpOnNextListener listener) {
         super(listener, rxAppCompatActivity);
         this.map = map;
         this.urlConstant = urlConstant;
-        setShowProgress(true);
+        setShowProgress(false);
         setCancel(true);
         setCache(true);
         setMethod("AppFiftyToneGraph/videoLink");

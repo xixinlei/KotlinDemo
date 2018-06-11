@@ -2,6 +2,7 @@ package com.example.kotlintest.kotlintest.api;
 
 import com.example.kotlintest.kotlintest.entity.MovieTop250Entity;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ import rx.Observable;
 
 public class HttpObserverble {
 
-    public static Observable getObserverBle(Map map, int urlConstant, Retrofit retrofit) throws Exception {
+    public static Observable getObserverBle(HashMap<String, String> map, int urlConstant, Retrofit retrofit) throws Exception {
         HttpService service = retrofit.create(HttpService.class);
         Observable observable = null;
         switch (urlConstant) {

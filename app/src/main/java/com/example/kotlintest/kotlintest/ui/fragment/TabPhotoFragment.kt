@@ -7,7 +7,7 @@ class TabPhotoFragment : BaseFragment() {
     override fun initData() {
     }
 
-    override fun initListener() {
+    override fun initView() {
     }
 
     override fun getLayout(): Int {

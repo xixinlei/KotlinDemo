@@ -4,7 +4,7 @@ import com.example.kotlintest.kotlintest.R
 import com.example.kotlintest.kotlintest.base.BaseFragment
 
 class TabMusicFragment : BaseFragment() {
-    override fun initListener() {
+    override fun initView() {
     }
 
     override fun getLayout(): Int {

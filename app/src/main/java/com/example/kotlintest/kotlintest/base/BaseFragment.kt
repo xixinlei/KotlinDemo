@@ -21,18 +21,18 @@ abstract class BaseFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         manager = App.manager
-        initListener()
-        initData()
+        initView()
     }
 
     override fun onStart() {
         super.onStart()
         rxcontext = App.getApplication().getRxcpmtext()
+        initData()
     }
 
     abstract fun initData()
 
-    abstract fun initListener()
+    abstract fun initView()
 
     abstract fun getLayout(): Int
 }
