@@ -8,5 +8,6 @@ class UrlConstant {
     companion object {
         const val MOVIETOP250: Int = 1;//豆瓣电影top250
         const val MOVIEDETAIL: Int = 2;//豆瓣电影详情
+        const val MOVIESEARCH: Int = 3;//电影搜索
     }
 }

@@ -1,21 +1,12 @@
 package com.example.kotlintest.kotlintest
 
 import android.app.Activity
-import android.app.FragmentManager
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.support.design.widget.TabLayout
 import android.support.v4.app.ActivityCompat
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.example.kotlintest.kotlintest.adapter.TabFragmentAda
 import com.example.kotlintest.kotlintest.base.BaseActivity
-import com.example.kotlintest.kotlintest.ui.fragment.*
 import com.example.kotlintest.kotlintest.unit.navigationbar.NavigationTabBar
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList

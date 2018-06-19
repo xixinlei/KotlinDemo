@@ -3,6 +3,7 @@ package com.example.kotlintest.kotlintest.base
 import android.app.Application
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import com.example.kotlintest.kotlintest.api.HttpManager
 import com.example.kotlintest.kotlintest.core.App
 import com.example.kotlintest.kotlintest.unit.swipeact.SwipeBackActivityHelper
@@ -25,6 +26,8 @@ abstract class BaseActivity : RxAppCompatActivity() {
         App.getApplication().setRxcontext(this)
         mHelper = SwipeBackActivityHelper(this)
         mHelper!!.onActivityCreate()
+//        getSupportActionBar()!!.hide();
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         initView()
         initListener()
         initData()

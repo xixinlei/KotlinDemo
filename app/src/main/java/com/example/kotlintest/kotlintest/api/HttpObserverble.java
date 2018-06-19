@@ -26,6 +26,9 @@ public class HttpObserverble {
             case UrlConstant.MOVIEDETAIL:
                 observable = service.getMovieDetail(Integer.parseInt(map.get("id").toString()));
                 break;
+            case UrlConstant.MOVIESEARCH:
+                observable = service.searchMovie(map.get("text"));
+                break;
 
         }
         if (observable == null) {
