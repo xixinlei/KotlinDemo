@@ -28,11 +28,10 @@ public class HttpApi extends BaseApi {
         super(listener, rxAppCompatActivity);
         this.map = map;
         this.urlConstant = urlConstant;
-        setShowProgress(true);
-        setCancel(false);
-        setCache(false);
+        setShowProgress(false);
+        setCancel(true);
+        setCache(true);
         setBaseUrl(HttpService.baseUrl);
-//        setMethod("AppFiftyToneGraph/videoLink");
         setCookieNetWorkTime(60);
         setCookieNoNetWorkTime(24 * 60 * 60);
     }

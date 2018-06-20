@@ -36,7 +36,6 @@ class NetworktestActivity : BaseActivity() {
 //                }
 //        ))
         var map = HashMap<String, String>()
-//        map["id"] = "1764796";
         manager.doHttpDeal(HttpApi(
                 this,
                 map,

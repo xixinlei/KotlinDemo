@@ -22,10 +22,6 @@ abstract class BaseFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         manager = App.manager
         initView()
-    }
-
-    override fun onStart() {
-        super.onStart()
         rxcontext = App.getApplication().getRxcpmtext()
         initData()
     }
