@@ -1,6 +1,8 @@
 package com.example.kotlintest.kotlintest.ui.fragment
 
 import android.content.Intent
+import android.graphics.Color
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
 import android.util.Log
@@ -9,7 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.kotlintest.kotlintest.R
-import com.example.kotlintest.kotlintest.R.id.movieList
+import com.example.kotlintest.kotlintest.R.id.*
 import com.example.kotlintest.kotlintest.adapter.MovieListAda
 import com.example.kotlintest.kotlintest.api.HttpApi
 import com.example.kotlintest.kotlintest.api.HttpOnNextListener
@@ -19,6 +21,8 @@ import com.example.kotlintest.kotlintest.base.Constant
 import com.example.kotlintest.kotlintest.entity.MovieTop250Entity
 import com.example.kotlintest.kotlintest.entity.SearchMovieEntity
 import com.example.kotlintest.kotlintest.ui.activity.MovieDetailActivity
+import com.getbase.floatingactionbutton.FloatingActionButton
+import com.getbase.floatingactionbutton.FloatingActionButton.SIZE_MINI
 import kotlinx.android.synthetic.main.tabmoviefragment.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.subjects.BehaviorSubject
@@ -40,6 +44,7 @@ class TabMovieFragment : BaseFragment() {
 
     override fun initData() {
         initAdapter()
+        listSign = listType.TOP250
         requestData("")//请求top250数据
     }
 
@@ -66,7 +71,6 @@ class TabMovieFragment : BaseFragment() {
 
                             override fun onError(e: Throwable?) {
                                 super.onError(e)
-                                mAdapter.loadMoreEnd()
                                 Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT)
                             }
                         }
@@ -100,9 +104,9 @@ class TabMovieFragment : BaseFragment() {
         mAdapter = MovieListAda(R.layout.item_movie, null)
         movieList.setLayoutManager(LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false))
         movieList.setAdapter(mAdapter)
-        mAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN)
+        mAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN)
         mAdapter.setOnLoadMoreListener(BaseQuickAdapter.RequestLoadMoreListener {
-            if (listSign === listType.TOP250) {
+            if (listSign == listType.TOP250) {
                 start = mAdapter.data.size
                 requestData("")
             } else {
@@ -116,16 +120,32 @@ class TabMovieFragment : BaseFragment() {
     }
 
     override fun initView() {
+        var titles: Array<String> = arrayOf("正在热映", "即将上映", "口碑榜")
+        for (i in 0..titles.size - 1) {
+            var floatingActionButton = FloatingActionButton(context)
+            floatingActionButton.title = titles[i]
+            floatingActionButton.colorNormal = Color.WHITE
+            floatingActionButton.colorPressed = Color.GRAY
+            floatingActionButton.colorDisabled = Color.WHITE
+            floatingActionButton.size = SIZE_MINI
+            floatingActionButton.setOnClickListener {
+                Snackbar.make(parent, "${floatingActionButton.title}", Snackbar.LENGTH_SHORT).show()
+            }
+            floatingButton.addButton(floatingActionButton)
+        }
         searchView.setIconified(true)
         editText = searchView.findViewById<EditText>(searchView.context.resources.getIdentifier("android:id/search_src_text", null, null))
         editText!!.hint = "电影搜索"
         searchMovie()?.debounce(500, TimeUnit.MILLISECONDS)!!.observeOn(AndroidSchedulers.mainThread())!!.subscribe(Action1<String> { str ->
-            listSign = listType.SEARCH
-            start = 0
-            requestData(str)
+            if (editText!!.isFocused) {
+                listSign = listType.SEARCH
+                start = 0
+                requestData(str)
+            }
         })
+
         searchView.setOnQueryTextFocusChangeListener(View.OnFocusChangeListener { view, b ->
-            if (!b) {
+            if (!b && listSign == listType.SEARCH) {
                 listSign = listType.TOP250
                 start = 0
                 requestData("")

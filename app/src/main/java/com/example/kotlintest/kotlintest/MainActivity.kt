@@ -3,6 +3,7 @@ package com.example.kotlintest.kotlintest
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.support.v4.app.ActivityCompat
 import android.support.v4.view.ViewPager
 import com.example.kotlintest.kotlintest.adapter.TabFragmentAda
@@ -26,10 +27,11 @@ class MainActivity : BaseActivity() {
         val colors = resources.getStringArray(R.array.default_preview)
         var models = ArrayList<NavigationTabBar.Model>()
         var titles: Array<String> = arrayOf("电影", "图书", "音乐", "广播", "相册")
+        var icons: Array<Drawable> = arrayOf(getResources().getDrawable(R.mipmap.ic_second), getResources().getDrawable(R.mipmap.ic_fifth), getResources().getDrawable(R.mipmap.ic_fourth), getResources().getDrawable(R.mipmap.ic_seventh), getResources().getDrawable(R.mipmap.ic_sixth))
         vp_horizontal_ntb.adapter = TabFragmentAda(supportFragmentManager)
         for (i in 0..titles.size - 1) {
             models.add(NavigationTabBar.Model.Builder(
-                    getResources().getDrawable(R.mipmap.ic_second),
+                    icons[i],
                     Color.parseColor(colors[i]))
                     .title(titles[i])
                     .build())
